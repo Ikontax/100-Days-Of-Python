@@ -1,35 +1,26 @@
-from turtle import Turtle, Screen
+import turtle as t
+from turtle import Screen
 import random
 
 
-tim = Turtle()
+tim = t.Turtle()
+t.colormode(255)
 screen = Screen()
 
+tim.speed("fastest")
 
-colors = ["yellow", "dark orange", "medium slate blue", "spring green", "deep pink", "dodger blue"]
-tim.speed("fast")
-tim.width(10)
+def random_color():
+    r = random.randint(0, 255)
+    g = random.randint(0, 255)
+    b = random.randint(0, 255)
+    random_color =  (r, g, b )
+    return random_color
 
-is_in_screen = True
-
-while is_in_screen:
-    tim.pencolor(random.choice(colors))
-    direction = random.randrange(0, 2)
-    if direction == 0:
-        tim.right(90)
-    else:
-        tim.left(90)
-    tim.forward(random.randint(0, 100))
-        
-
+def draw_spitograph(size_of_gab):
+    for _ in range(int(360/ size_of_gab)):
+        tim.color(random_color())
+        tim.circle(100)
+        tim.setheading(tim.heading() + size_of_gab)    
     
-
-    
-    
-
-
-
-
-
-x
+draw_spitograph(5)
 screen.exitonclick()
